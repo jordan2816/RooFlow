@@ -1,0 +1,102 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens if needed */
+  flex-grow: 1; /* Allow container to fill remaining height */
+  overflow: hidden; /* Prevent body scrollbars */
+}
+
+.toolbar {
+  width: 100%;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+}
+
+.toolbar button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.editor-pane,
+.preview-pane {
+  flex-basis: 50%; /* Each takes half the width */
+  height: calc(
+    100vh - 80px
+  ); /* Adjust height based on toolbar/statusbar/savearea */
+  overflow-y: auto;
+  padding: 10px;
+  border-left: 1px solid #ccc;
+}
+
+.editor-pane {
+  border-left: none;
+}
+
+/* CodeMirror specific styling */
+.editor-pane .CodeMirror {
+  height: 100%; /* Make CodeMirror fill the pane */
+  border: 1px solid #ccc;
+}
+
+.preview-pane #preview {
+  /* Basic styling for preview elements */
+  line-height: 1.6;
+}
+
+.preview-pane #preview h1,
+.preview-pane #preview h2,
+.preview-pane #preview h3 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.preview-pane #preview p {
+  margin-bottom: 1em;
+}
+
+.preview-pane #preview pre {
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.status-bar,
+.save-area {
+  width: 100%;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border-top: 1px solid #ccc;
+  font-size: 0.9em;
+  text-align: right;
+}
+
+.save-area button {
+  margin-left: 10px;
+}
+
+/* Basic Responsive (Example: Stack panes on smaller screens) */
+@media (max-width: 768px) {
+  .editor-pane,
+  .preview-pane {
+    flex-basis: 100%;
+    height: calc(50vh - 40px); /* Adjust height for stacked view */
+    border-left: none;
+    border-bottom: 1px solid #ccc;
+  }
+}

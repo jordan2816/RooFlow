@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- CodeMirror CSS (CDN) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/theme/default.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="toolbar">
+        <button id="bold-btn" title="Bold">B</button>
+        <button id="italic-btn" title="Italic">I</button>
+        <button id="link-btn" title="Link">Link</button>
+        <button id="image-btn" title="Image">Image</button>
+        <button id="code-btn" title="Code Block">Code</button>
+        <button id="ul-btn" title="Unordered List">UL</button>
+        <button id="ol-btn" title="Ordered List">OL</button>
+      </div>
+      <div class="editor-pane">
+        <textarea id="editor"></textarea>
+      </div>
+      <div class="preview-pane">
+        <div id="preview"></div>
+      </div>
+      <div class="status-bar">
+        <span id="word-count">Words: 0</span> |
+        <span id="char-count">Characters: 0</span>
+      </div>
+      <div class="save-area">
+        <button id="save-html-btn">Save as HTML</button>
+        <button id="save-text-btn">Save as Text</button>
+      </div>
+    </div>
+
+    <!-- Marked.js (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- CodeMirror JS (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/mode/markdown/markdown.min.js"></script>
+    <!-- Local Script -->
+    <script src="script.js"></script>
+  </body>
+</html>
